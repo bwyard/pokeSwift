@@ -18,8 +18,13 @@ struct ContentView: View {
                     VStack(alignment: .leading, spacing: 5){
                         Text(poke.name.capitalized)
                             .font(.title)
-                        Text(poke.type.capitalized)
-                            .italic()
+                        HStack {
+                            Text(poke.type.capitalized)
+                                .italic()
+                            Circle()
+                                .foregroundColor(poke.typeColor)
+                                .frame(width:10, height: 10)
+                        }
                         Text(poke.description)
                             .font(.caption)
                             .lineLimit(2)
