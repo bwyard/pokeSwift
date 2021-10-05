@@ -21,7 +21,21 @@ struct ContentView: View {
                         Text(poke.type.capitalized)
                             .italic()
                         Text(poke.description)
+                            .font(.caption)
+                            .lineLimit(2)
                     }
+                    AsyncImage(url: URL(string: poke.imageUrl)) { phase in switch phase{
+                    case .empty: ProgressView()
+                    case .success(let image):
+                        image.resizable()
+                            .interpolation(.none)
+                            .scaledToFit()
+                            .frame(width:100, height: 100)
+                    case .failure:
+                        Image(systemName: "photo")
+                    @unknown default:
+                        EmptyView()
+                    }}
                 }
             }
             

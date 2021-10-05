@@ -12,14 +12,14 @@ struct Pokemon: Identifiable, Decodable {
     
     let id: Int
     let name: String
-    let imageURL: String
+    let imageUrl: String
     let type: String
     let description: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case imageURL = "imageUrl"
+        case imageUrl
         case type
         case description
     }
